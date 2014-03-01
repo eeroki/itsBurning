@@ -1,0 +1,13 @@
+# Generic
+target/
+.classpath
+.settings
+.project
+
+# Idea
+.idea/
+.idea_modules/
+*.iml
+
+# Node
+node_modules/
