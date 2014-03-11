@@ -10,7 +10,7 @@ resolvers += "spray repo" at "http://repo.spray.io"
 
 resolvers += "spray nightlies" at "http://nightlies.spray.io"
 
-libraryDependencies ++= Dependencies.warbuilder
+libraryDependencies ++= Dependencies.itsBurning
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
@@ -27,3 +27,12 @@ resourceGenerators in Compile <+= (resourceManaged, baseDirectory) map { (manage
 
 // watch webapp files
 watchSources <++= baseDirectory map { path => ((path / "src" / "main" / "webapp") ** "*").get }
+
+scalacOptions ++= Seq(
+  "-unchecked",
+  "-deprecation",
+  "-Xlint",
+  "-language:_",
+  "-target:jvm-1.6",
+  "-encoding", "UTF-8"
+)
