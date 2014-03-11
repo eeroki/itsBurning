@@ -26,7 +26,7 @@ object Dependencies {
 
 	import Library._
 
-	val warbuilder = List(
+	val itsBurning = List(
 		akkaActor,
 		akkaslf4j,
 		sprayCan,
