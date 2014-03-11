@@ -2,10 +2,12 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
+var itsBurningControllers = angular.module('itsBurning.controllers', []);
 
-  }])
-  .controller('MyCtrl2', [function() {
-
+itsBurningControllers.controller('ProductListCrtl', ['$scope', 'Product',
+  function($scope, Product) {
+    $scope.products = Product.query();
   }]);
+
+itsBurningControllers.controller('MyCtrl2', [function() {
+}]);
