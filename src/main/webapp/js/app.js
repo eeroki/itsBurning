@@ -10,7 +10,15 @@ angular.module('itsBurning', [
   'itsBurning.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/product-list.html', controller: 'ProductListCrtl'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
+  $routeProvider.when('/view1', {
+    templateUrl: 'partials/product-list.html',
+    controller: 'ProductListCrtl',
+    activetab: 'home'
+  });
+  $routeProvider.when('/view2', {
+    templateUrl: 'partials/partial2.html',
+    controller: 'MyCtrl2',
+    activetab: 'details'
+  });
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
