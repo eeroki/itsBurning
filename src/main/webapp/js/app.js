@@ -4,6 +4,7 @@
 // Declare app level module which depends on filters, and services
 angular.module('itsBurning', [
   'ngRoute',
+  'ui.bootstrap',
   'itsBurning.filters',
   'itsBurning.services',
   'itsBurning.directives',
