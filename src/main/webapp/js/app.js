@@ -21,5 +21,9 @@ config(['$routeProvider', function($routeProvider) {
     controller: 'MyCtrl2',
     activetab: 'details'
   });
+  $routeProvider.when('/products/:id', {
+    templateUrl: 'partials/product-details.html',
+    controller: 'ProductDetailCrtl'
+  });
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);

@@ -7,9 +7,8 @@
 		<div class="span10">
 			<ul class="products">
 				<li ng-repeat="product in products | filter:query">
-          <p>Name: {{product.name}}</p>
+          <a href="#/products/{{product.id}}">{{product.name}}</a>
           <p>Burn: {{product.burn}}</p>
-          <p>{{product.description}}</p>
         </li>
 			</ul>
 		</div>	

@@ -22,9 +22,10 @@ trait ProductComponent { this: Profile =>
 
   def allProducts(implicit session: Session): List[Product] = products.list
 
+  def getById(id: Long)(implicit session: Session): Option[Product] = products.filter(_.id  === id).firstOption
+
   def insert(m: Product)(implicit session: Session): Int = {
     val id: Int = products += m
-    println("Inserted {}", m)
     id
   }
 }

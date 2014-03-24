@@ -2,6 +2,7 @@ package itsburning.service
 
 import spray.routing.{HttpService, Route}
 import itsburning.domain._
+import spray.http.StatusCodes._
 
 trait SprayService extends HttpService { this: DBConfig =>
 
@@ -11,20 +12,23 @@ trait SprayService extends HttpService { this: DBConfig =>
     import JsonImplicits._
 
     path("products") {
-      get { ctx =>
-        ctx.complete {
+      get {
+        complete {
           val result: List[Product] = m.getProducts()
           result
         }
       }
     } ~
-    path("product") {
-      post { ctx =>
-        entity(as[Product]) { product =>
-          val id: Int = m.addProduct(product)
-          complete(id.toString)
+    path("products" / IntNumber) { id =>
+      get {
+        complete {
+          m.getProduct(id.toLong) match {
+            case Some(product) => product
+            case None => NotFound
+          }
         }
       }
     }
-  }  
+  }
+
 }
